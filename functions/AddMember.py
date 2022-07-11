@@ -22,7 +22,10 @@ def add_mb(request: request):
     col_ref: CollectionReference = client.collection(GlobalConstants.FIRESTORE_COLLECTION_NAME)
     
     # Validate hh_id exists
-    hh_id: str = request_dict.get("hh_id", "")
+    hh_id: str = request_dict.get("hh_id", None)
+    if not hh_id or len(hh_id) == 0:
+        return jsonify({"msg": "hh_id not found"}), 404
+
     hh_doc_ref: DocumentReference = col_ref.document(hh_id)
     hh_doc: DocumentSnapshot = hh_doc_ref.get()
 
