@@ -1,0 +1,84 @@
+>>> endpoints <<<
+
+- create hh
+<domain>/create_hh, post
+payload: {
+    housing_type: <str> (mandatory)
+}
+return: hh_id
+pseudo_code:
+    check if payload is correct
+    create document in FS, autogenerating doc id
+    return hh_id
+
+- add mb to hh
+<domain>/add_mb, post
+payload: {
+    hh_id: <str>
+    name: <str>
+    gender: <str>
+    marital_status: <str>
+    spouse: <str>
+    occupation_type: <str>
+    annual_income: <str>
+    dob: <int>
+}
+returns: nothing
+br: 
+    spouse can be empty if marital_status is not married
+    spouse can be pers_id or name
+    annual_income can be empty if occupation_type is unemployed or student
+pseudo_code:
+    check if payload is correct
+    check if hh_id exists
+    create document in FS, autogenerating doc id
+    return
+
+- list all hh (s&i)
+- search for a hh (s&i)
+<domain>/search_hh, get
+args: 
+    hh_id: <str>
+returns: household
+br:
+    if no hh_id, return all
+pseudo_code:
+    check if args is correct
+    if no hh_id
+        return dump db
+    if yes hh_id
+        check if hh_id exists
+        return hh_doc
+
+- list hh and qualifying mbs of a grant (s&i)
+<domain>/list_grants, get
+args:
+    grant_name: <str>
+returns:
+    list<household>
+pseudo code:
+    check if args is correct
+    fetch all docs
+    filter docs
+    return hh_docS
+
+====================
+
+>>> object <<<
+objects should have todicts to throw to response and fromdicts to parse to objs
+objects should throw valueerrors if try to create with invalid properties
+
+household
+k hh_id: str (doc_id)
+- housing_type: enum(landed, condo, hdb, others)
+- members: list<person>
+
+person
+k pers_id: str (doc_id)
+- name: str
+- gender: enum(male, female, others)
+- marital_status: enum(single, married, divorced, widowed)
+- spouse: str (pers_id)
+- occupation_type: enum(student, unemployed, employed)
+- annual_income: float
+- dob: int (yyyymmdd)
