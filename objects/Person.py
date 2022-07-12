@@ -65,14 +65,6 @@ class Person:
 
     @staticmethod
     def from_dict(person: dict):
-        name: str = ""
-        gender: str = ""
-        marital_status: str = ""
-        spouse: str = ""
-        occupation_type: str = ""
-        annual_income: float = 0.0
-        dob: int = 0
-
         name: str = person.get("name", "").lower()
         gender: str = person.get("gender", "").lower()
         marital_status: str = person.get("marital_status", "").lower()
