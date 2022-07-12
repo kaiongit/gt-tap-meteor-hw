@@ -1,12 +1,9 @@
-from xml.dom.minidom import Document
 import GlobalConstants
 from flask import jsonify, request
 from google.cloud import firestore
+from google.cloud.firestore_v1.base_document import DocumentSnapshot
 from google.cloud.firestore_v1.collection import CollectionReference
 from google.cloud.firestore_v1.document import DocumentReference
-from google.cloud.firestore_v1.base_document import DocumentSnapshot
-from objects.Person import Person
-
 
 def search_hh(request: request):
     
@@ -14,7 +11,7 @@ def search_hh(request: request):
     arg_dict: dict = request.args
     hh_id: str = arg_dict.get("hh_id", None)
     if hh_id is not None and len(hh_id) == 0:
-        return jsonify({"msg": "hh_id not found"}), 404
+        return jsonify({"msg": "Household ID not found"}), 404
     
     # Get DB
     client: firestore.Client = firestore.Client(project=GlobalConstants.GCLOUD_PROJECT_NAME)
@@ -27,7 +24,7 @@ def search_hh(request: request):
 
         # Check if household exists
         if not doc.exists:
-            return jsonify({"msg": "hh_id not found"}), 404
+            return jsonify({"msg": "Household ID not found"}), 404
 
         doc_dict: dict = doc.to_dict()
         doc_dict["hh_id"] = hh_id
