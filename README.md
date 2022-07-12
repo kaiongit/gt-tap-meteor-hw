@@ -14,7 +14,7 @@ Try the API at [https://asia-southeast2-nomadic-thinker-355706.cloudfunctions.ne
 - [ ] Add unit tests where applicable
 
 ### Overall system architecture
-The API is designed cloud first to be deployed onto Google's Cloud Functions. The underlying datastore for the application is in Firestore. 
+The API is designed cloud first to be deployed onto Google's Cloud Functions. The underlying datastore for the application is in Firestore. The deployment process is documented in [deploy-to-gcf-process.md](deploy-to-gcf-process.md).
 
 ---
 
