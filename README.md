@@ -68,7 +68,7 @@ Property | Description
 --- | ---
 ```hh_id``` | A string document ID of a household 
 ```housing_type``` | The housing type of the household
-```members``` | A list of any number of the following object: <table> <thead> <tr> <th>Property</th> <th>Description</th> </tr> </thead> <tbody> <tr><td>```name```</td><td>A string of the name of the member</td><tr> <tr><td>```gender```</td><td>A string of the gender of the member</td><tr> <tr><td>```marital_status```</td><td>A string of the marital status of the member</td><tr> <tr><td>```occupation_type```</td><td>A string of the occupation type of the member</td><tr> <tr><td>```annual_income```</td><td>A float of the annual income of the member</td><tr> <tr><td>```dob```</td><td>An integer of the date of birth of the member</td><tr> </tbody> </table>
+```members``` | A list of any number of the following object: <table> <thead> <tr> <th>Property</th> <th>Description</th> </tr> </thead> <tbody> <tr><td>```pers_id```</td><td>A string document ID of the member</td><tr> <tr><td>```name```</td><td>A string of the name of the member</td><tr> <tr><td>```gender```</td><td>A string of the gender of the member</td><tr> <tr><td>```marital_status```</td><td>A string of the marital status of the member</td><tr> <tr><td>```spouse```</td><td>A string of the name of the member's spouse</td><tr> <tr><td>```occupation_type```</td><td>A string of the occupation type of the member</td><tr> <tr><td>```annual_income```</td><td>A float of the annual income of the member</td><tr> <tr><td>```dob```</td><td>An integer of the date of birth of the member</td><tr> </tbody> </table>
 
 ---
 
@@ -85,7 +85,7 @@ Property | Description
 --- | ---
 ```hh_id``` | A string document ID of a household 
 ```housing_type``` | The housing type of the household
-```members``` | A list of any number of the following object: <table> <thead> <tr> <th>Property</th> <th>Description</th> </tr> </thead> <tbody> <tr><td>```name```</td><td>A string of the name of the member</td><tr> <tr><td>```gender```</td><td>A string of the gender of the member</td><tr> <tr><td>```marital_status```</td><td>A string of the marital status of the member</td><tr> <tr><td>```occupation_type```</td><td>A string of the occupation type of the member</td><tr> <tr><td>```annual_income```</td><td>A float of the annual income of the member</td><tr> <tr><td>```dob```</td><td>An integer of the date of birth of the member</td><tr> </tbody> </table>
+```members``` | A list of any number of the following object: <table> <thead> <tr> <th>Property</th> <th>Description</th> </tr> </thead> <tbody> <tr><td>```pers_id```</td><td>A string document ID of the member</td><tr> <tr><td>```name```</td><td>A string of the name of the member</td><tr> <tr><td>```gender```</td><td>A string of the gender of the member</td><tr> <tr><td>```marital_status```</td><td>A string of the marital status of the member</td><tr> <tr><td>```spouse```</td><td>A string of the name of the member's spouse</td><tr> <tr><td>```occupation_type```</td><td>A string of the occupation type of the member</td><tr> <tr><td>```annual_income```</td><td>A float of the annual income of the member</td><tr> <tr><td>```dob```</td><td>An integer of the date of birth of the member</td><tr> </tbody> </table>
 
 ---
 
