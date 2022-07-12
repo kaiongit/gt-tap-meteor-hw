@@ -1,3 +1,4 @@
+from flask import jsonify
 from functions.CreateHousehold import create_hh
 from functions.AddMember import add_mb
 from functions.SearchHousehold import search_hh
@@ -34,13 +35,18 @@ def gov_grant_disb(request):
     if not allowed:
         return {"msg": "Unknown request"}, 400
 
-    if path == "/create_hh":
-        return create_hh(request)
-    elif path == "/add_mb":
-        return add_mb(request)
-    elif path == "/search_hh":
-        return search_hh(request)
-    elif path == "/list_grants":
-        return list_grants(request)
+    try:
+        if path == "/create_hh":
+            return create_hh(request)
+        elif path == "/add_mb":
+            return add_mb(request)
+        elif path == "/search_hh":
+            return search_hh(request)
+        elif path == "/list_grants":
+            return list_grants(request)
+            
+    except Exception as e:
+        print("ERROR:", str(e))
+        return jsonify({"msg": "An error has occured"}), 500
 
-    return {"msg": "Unknown request"}, 400
+    return jsonify({"msg": "Unknown request"}), 400

@@ -18,6 +18,7 @@ def search_hh(request: request):
     col_ref: CollectionReference = client.collection(GlobalConstants.FIRESTORE_COLLECTION_NAME)
 
     if hh_id:
+        
         # Get household
         doc_ref: DocumentReference = col_ref.document(hh_id)
         doc: DocumentSnapshot = doc_ref.get()

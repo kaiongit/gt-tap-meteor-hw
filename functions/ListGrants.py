@@ -27,31 +27,26 @@ def list_grants(request: request):
     # Get docs
     docs = col_ref.get()
     
-    try:
-        for doc in docs:
-            doc_dict: dict = doc.to_dict()
-            doc_dict["hh_id"] = doc.id
+    for doc in docs:
+        doc_dict: dict = doc.to_dict()
+        doc_dict["hh_id"] = doc.id
 
-            # Get members
-            members: list = []
+        # Get members
+        members: list = []
 
-            doc_ref: DocumentReference = doc.reference
-            doc_col_ref: CollectionReference = \
-                doc_ref.collection(GlobalConstants.FIRESTORE_SUBCOLLECTION_NAME)
-            doc_col: list = doc_col_ref.get()
+        doc_ref: DocumentReference = doc.reference
+        doc_col_ref: CollectionReference = \
+            doc_ref.collection(GlobalConstants.FIRESTORE_SUBCOLLECTION_NAME)
+        doc_col: list = doc_col_ref.get()
 
-            for sdoc in doc_col:
-                sdoc_dict: dict = sdoc.to_dict()
-                sdoc_dict["pers_id"] = sdoc.id
-                members.append(sdoc_dict)
+        for sdoc in doc_col:
+            sdoc_dict: dict = sdoc.to_dict()
+            sdoc_dict["pers_id"] = sdoc.id
+            members.append(sdoc_dict)
 
-            doc_dict["members"] = members
+        doc_dict["members"] = members
 
-            households.append(doc_dict)
-
-    except Exception as e:
-        print("ERROR:", str(e))
-        return jsonify({"msg": "An error has occured"}), 500
+        households.append(doc_dict)
 
     # Invoke grant determination functions
     elig_hh: list = []

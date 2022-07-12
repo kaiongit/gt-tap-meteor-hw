@@ -17,10 +17,6 @@ def create_hh(request: request):
     client: firestore.Client = firestore.Client(project=GlobalConstants.GCLOUD_PROJECT_NAME)
     col_ref: CollectionReference = client.collection(GlobalConstants.FIRESTORE_COLLECTION_NAME)
 
-    try:
-        _, doc_ref = col_ref.add(household.to_dict())
-    except Exception as e:
-        print("ERROR:", str(e))
-        return jsonify({"msg": "An error has occured"}), 500
+    _, doc_ref = col_ref.add(household.to_dict())
 
     return jsonify({"hh_id": doc_ref.id}), 201

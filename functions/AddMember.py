@@ -33,12 +33,8 @@ def add_mb(request: request):
         return jsonify({"msg": "Household ID not found"}), 404
     
     # Create new member in household
-    try:
-        hh_doc_col_ref: CollectionReference = \
-            hh_doc_ref.collection(GlobalConstants.FIRESTORE_SUBCOLLECTION_NAME)
-        _, member_doc_ref = hh_doc_col_ref.add(person.to_dict())
-    except Exception as e:
-        print("ERROR:", str(e))
-        return jsonify({"msg": "An error has occured"}), 500
+    hh_doc_col_ref: CollectionReference = \
+        hh_doc_ref.collection(GlobalConstants.FIRESTORE_SUBCOLLECTION_NAME)
+    _, member_doc_ref = hh_doc_col_ref.add(person.to_dict())
 
     return "", 201
