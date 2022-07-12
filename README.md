@@ -14,7 +14,7 @@ Try the API at [https://asia-southeast2-nomadic-thinker-355706.cloudfunctions.ne
 - [ ] Add unit tests where applicable
 
 ### Overall system architecture
-The API is designed cloud first to be deployed onto Google's Cloud Functions. The underlying datastore for the application is in Firestore. The deployment process is documented in [deploy-to-gcf-process.md](deploy-to-gcf-process.md).
+The API is designed cloud first to be deployed onto Google's Cloud Functions. The underlying datastore for the application is in Firestore. The deployment process is documented in [deploy-to-gcf-process.md](deploy-to-gcf-process.md). A guide on how to run the app locally is documented in [run-on-local.md](run-on-local.md) (as local as can be because the app still needs to connect to an instance of Firestore [unless intending to use Firestore Local Emulator]).
 
 ---
 
