@@ -44,7 +44,7 @@ def search_hh(request: request):
 
         doc_dict["members"] = members
 
-        return jsonify(doc_dict), 200
+        return jsonify([doc_dict]), 200
 
     else:
         households: list = []
